@@ -52,7 +52,9 @@ const addTodo = (todo) => {
   const newTodo = {
     id: Math.random(),
     todo: todo,
+    date: new Date(),
   };
+  
 
   setList([...list, newTodo]);
 
@@ -60,6 +62,8 @@ const addTodo = (todo) => {
 
 };
 
+const date = addTodo.date
+console.log(date)
 const deleteTodo = (id) => {
    const newList = list.filter((todo) => todo.id !== id);
 
@@ -74,28 +78,33 @@ const deleteTodo = (id) => {
   return (
     
         <div id="app">
-      <div class="panel-container">
-        <div class="tabs-container">
-          <button class="tab btn btn-primary-ghost active" >
+      <div className="panel-container">
+        <div className="tabs-container">
+          <button className="tab btn btn-primary-ghost active" >
             Today
           </button>
-          <button class="tab btn" id="tab-important">Important</button>
+          <button className="tab btn" id="tab-important">Important</button>
         </div>
-        <div class="todo-panel-container">
-          <div id="todo-items-list" class="todo-items-container"> 
+        <div className="todo-panel-container">
+          <div id="todo-items-list" className="todo-items-container"> 
 
             {list.map((todo) => (
               <li className='todo-items-list' key={todo.id}>
                 {todo.todo}
-                 
                 <button className='btn-danger btn-lg btn' 
                 onClick={() => deleteTodo(todo.id)}>
                   Delete
                 </button>
                 
               </li>
-    
             ))}
+                
+                  
+                    <span className='todo-date'>
+                      
+                    </span>
+                    
+            
           </div>
           <div id="add-todo-form">
             <input id="add-todo-input"
@@ -106,7 +115,7 @@ const deleteTodo = (id) => {
               />
             <button
               id="add-todo-btn"
-              class="btn btn-primary-solid rounded-full"
+              className="btn btn-primary-solid rounded-full"
               onClick={() => addTodo(input)}
             >
               +
