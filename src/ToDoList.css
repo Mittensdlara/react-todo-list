@@ -1,0 +1,143 @@
+body {
+    font-family: sans-serif;
+  }
+  
+  :root {
+    --primary-color: #9333ea;
+    --primary-light-color: rgba(147, 51, 234, 0.06);
+    --secondary-color: #6b7280;
+    --danger-color: #fe4141;
+    --bg-color: #f6d1fc;
+    --light-gray: #f3f3f3;
+    --text-gray: #6b7280;
+  }
+  
+  #app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+  }
+  
+  body {
+    background-color: var(--bg-color);
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin: 0;
+  }
+  
+  input {
+    border: none;
+    padding: 5px 8px;
+    background-color: transparent;
+    color: var(--text-gray);
+    width: 100%;
+  }
+  input::placeholder {
+    color: var(--text-gray);
+  }
+  input:focus {
+    outline: none;
+  }
+  
+  .btn {
+    all: unset;
+    text-align: center;
+    vertical-align: center;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 150ms;
+    padding: 12px 18px;
+    font-weight: 600;
+  }
+  
+  .btn-lg {
+    min-width: 6rem;
+    min-height: 1.25rem;
+  }
+  
+  .btn-primary-ghost {
+    color: var(--primary-color);
+    background-color: var(--primary-light-color);
+  }
+  .btn-primary-solid {
+    color: white;
+    background-color: var(--primary-color);
+  }
+
+  
+  .btn-danger {
+    color: white;
+    background-color: var(--danger-color);
+    margin-left: 40px;
+    font-size: 15px;
+  }
+  
+  .panel-container {
+    display: flex;
+    gap: 12px;
+    border-radius: 8px;
+  }
+  
+  .todo-panel-container {
+    background-color: white;
+    padding: 20px 24px;
+    border-radius: 12px;
+  }
+  
+  .tabs-container,
+  .todo-items-container {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    
+  }
+  
+  .todo-items-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: space-between;
+    min-width: 28rem;
+  }
+  
+  .todo-item {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 100%;
+  }
+  .todo-items-list {
+    font-weight: bold;
+    font-size: 25px;
+
+  }
+  .todo-date {
+    margin-top: 4px;
+    color: gray;
+  }
+  
+  #add-todo-form {
+    display: flex;
+    background-color: var(--light-gray);
+    margin-top: 1.5rem;
+    border-radius: 6px;
+    padding: 5px;
+  }
+  
+  /* Put utility classes at the end so they override everything */
+  .rounded-full {
+    border-radius: 9999px;
+  }
+  
