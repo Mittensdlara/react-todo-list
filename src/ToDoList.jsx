@@ -42,28 +42,36 @@ import "./ToDoList.css";
 //         ],
 //     };
 
-    const [list, setList] = useState([]);
+    const [listToday, setListToday] = useState([]);
+    const [listImportant, setListImportant] = useState([]);
     const [input, setInput] = useState("");
     const [tab, setTab] = useState('TODAY');
 
-    const addTodo = (todo) => {
-        const newTodo = {
+    const addTodoT = (todo) => {
+        const newTodoT = {
             id: Math.random(),
             todo: todo,
             date: new Date(),
         };
+        setListToday([...listToday, newTodoT]);
+        setInput("");
+      };
 
-        setList([...list, newTodo]);
-
+      const addTodoI = (todo) => {
+        const newTodoI = {
+          id: Math.random(),
+          todo: todo,
+          date: new Date(),
+      };
+        setListImportant([...listImportant, newTodoI]);
         setInput("");
     };
-
-    const date = addTodo.date;
-    console.log(date);
     const deleteTodo = (id) => {
-        const newList = list.filter((todo) => todo.id !== id);
+        const newListT = listToday.filter((todo) => todo.id !== id);
+        setListToday(newListT);
+        const newListI = listImportant.filter((todo) => todo.id !== id);
+        setListImportant(newListI);
 
-        setList(newList);
     };
 
     // const handleChange = () => (preveText) => setInput(preveText.target.value)
@@ -90,7 +98,7 @@ import "./ToDoList.css";
                 <div className="todo-panel-container">
                     <div id="todo-items-list" className="todo-items-container">
                         {tab === "TODAY" ? 
-                            list.map((todo) => (
+                            listToday.map((todo) => (
                                 <li className="todo-items-list" key={todo.id}>
                                     {todo.todo}
                                     <button
@@ -101,7 +109,7 @@ import "./ToDoList.css";
                                     </button>
                                 </li>
                             )) : 
-                              list.map((todo) => (
+                              listImportant.map((todo) => (
                                   <li className="todo-items-list" key={todo.id}>
                                       {todo.todo}
                                       <button
@@ -131,7 +139,7 @@ import "./ToDoList.css";
                         <button
                             id="add-todo-btn"
                             className="btn btn-primary-solid rounded-full"
-                            onClick={() => addTodo(input)}
+                            onClick={tab === "TODAY" ? () => addTodoT(input) : () => addTodoI(input)}
                         >
                             +
                         </button>
