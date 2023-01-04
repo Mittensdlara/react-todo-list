@@ -47,7 +47,7 @@ import "./ToDoList.css";
     const [input, setInput] = useState("");
     const [tab, setTab] = useState('TODAY');
 
-    const addTodoT = (todo) => {
+    const addTodoToday = (todo) => {
         const newTodoT = {
             id: Math.random(),
             todo: todo,
@@ -57,7 +57,7 @@ import "./ToDoList.css";
         setInput("");
       };
 
-      const addTodoI = (todo) => {
+      const addTodoImportant = (todo) => {
         const newTodoI = {
           id: Math.random(),
           todo: todo,
@@ -139,7 +139,7 @@ import "./ToDoList.css";
                         <button
                             id="add-todo-btn"
                             className="btn btn-primary-solid rounded-full"
-                            onClick={tab === "TODAY" ? () => addTodoT(input) : () => addTodoI(input)}
+                            onClick={tab === "TODAY" ? () => addTodoToday(input) : () => addTodoImportant(input)}
                         >
                             +
                         </button>
